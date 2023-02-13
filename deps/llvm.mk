@@ -262,7 +262,7 @@ endif
 
 LLVM_INSTALL = \
 	cd $1 && mkdir -p $2$$(build_depsbindir) && \
-	cp -r $$(SRCCACHE)/$$(LLVM_SRC_DIR)/llvm/utils/lit $2$$(build_depsbindir)/ && \
+	rsync --recursive --times --perms --compress-level=0 $$(SRCCACHE)/$$(LLVM_SRC_DIR)/llvm/utils/lit $2$$(build_depsbindir)/ && \
 	$$(CMAKE) -DCMAKE_INSTALL_PREFIX="$2$$(build_prefix)" -P cmake_install.cmake
 ifeq ($(OS), WINNT)
 LLVM_INSTALL += && cp $2$$(build_shlibdir)/$(LLVM_SHARED_LIB_NAME).dll $2$$(build_depsbindir)
