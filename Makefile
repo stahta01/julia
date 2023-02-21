@@ -262,7 +262,7 @@ endif
 	# These are files from mingw32 and required for creating shared libraries like our caches.
 	-$(INSTALL_M) $(build_libdir)/libgcc_s.a $(DESTDIR)$(libdir)/
 	-$(INSTALL_M) $(build_libdir)/libgcc.a $(DESTDIR)$(libdir)/
-	-$(INSTALL_M) $(build_libdir)/libmsvcrt.a $(DESTDIR)$(libdir)/
+	-$(INSTALL_M) $(build_libdir)/libucrtbase.a $(DESTDIR)$(libdir)/
 else
 
 # Copy over .dSYM directories directly for Darwin
