@@ -18,7 +18,7 @@ libpcre2_8_handle::Ptr{Cvoid} = C_NULL
 libpcre2_8_path::String = ""
 
 if Sys.iswindows()
-    const libpcre2_8 = "libpcre2-8-0.dll"
+    const libpcre2_8 = "libpcre2-8.dll"
 elseif Sys.isapple()
     const libpcre2_8 = "@rpath/libpcre2-8.0.dylib"
 else
