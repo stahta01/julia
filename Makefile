@@ -235,8 +235,9 @@ define stringreplace
 	MSYS2_ARG_CONV_EXCL='*' $(build_depsbindir)/stringreplace $$(strings -t x - '$1' | grep "$2" | awk '{print $$1;}') "$3" 255 "$(call cygpath_w,$1)"
 endef
 
+install-deps: $(build_depsbindir)/stringreplace $(BUILDROOT)/doc/_build/html/en/index.html
 
-install: $(build_depsbindir)/stringreplace $(BUILDROOT)/doc/_build/html/en/index.html
+install: install-deps
 	@$(MAKE) $(QUIET_MAKE) $(JULIA_BUILD_MODE)
 	@for subdir in $(bindir) $(datarootdir)/julia/stdlib/$(VERSDIR) $(docdir) $(man1dir) $(includedir)/julia $(libdir) $(private_libdir) $(sysconfdir) $(private_libexecdir); do \
 		mkdir -p $(DESTDIR)$$subdir; \
