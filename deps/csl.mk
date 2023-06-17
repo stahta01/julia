@@ -63,7 +63,6 @@ $(eval $(call copy_csl,$(call versioned_libname,libgfortran,5)))
 # These are all libraries that we should always have
 $(eval $(call copy_csl,$(call versioned_libname,libquadmath,0)))
 $(eval $(call copy_csl,$(call versioned_libname,libstdc++,6)))
-$(eval $(call copy_csl,$(call versioned_libname,libssp,0)))
 $(eval $(call copy_csl,$(call versioned_libname,libatomic,1)))
 $(eval $(call copy_csl,$(call versioned_libname,libgomp,1)))
 

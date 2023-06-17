@@ -210,7 +210,7 @@ ifneq ($(LIBLAPACKNAME),$(LIBBLASNAME))
 JL_PRIVATE_LIBS-$(USE_SYSTEM_LAPACK) += $(LIBLAPACKNAME)
 endif
 
-JL_PRIVATE_LIBS-$(USE_SYSTEM_CSL) += libgfortran libquadmath libstdc++ libgcc_s libgomp libssp libatomic
+JL_PRIVATE_LIBS-$(USE_SYSTEM_CSL) += libgfortran libquadmath libstdc++ libgcc_s libgomp libatomic
 ifeq ($(OS),Darwin)
 JL_PRIVATE_LIBS-$(USE_SYSTEM_CSL) += libc++
 endif
@@ -257,7 +257,6 @@ endif
 	# We have a single exception; we want 7z.dll to live in private_libexecdir, not bindir, so that 7z.exe can find it.
 	-mv $(DESTDIR)$(bindir)/7z.dll $(DESTDIR)$(private_libexecdir)/
 	-$(INSTALL_M) $(build_bindir)/libopenlibm.dll.a $(DESTDIR)$(libdir)/
-	-$(INSTALL_M) $(build_libdir)/libssp.dll.a $(DESTDIR)$(libdir)/
 	# The rest are compiler dependencies, as an example memcpy is exported by msvcrt
 	# These are files from mingw32 and required for creating shared libraries like our caches.
 	-$(INSTALL_M) $(build_libdir)/libgcc_s.a $(DESTDIR)$(libdir)/
